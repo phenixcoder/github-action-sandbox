@@ -24,6 +24,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.inputs.commitId }}
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.commitId }}"
     - name: Print log message
